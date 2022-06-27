@@ -1,0 +1,54 @@
+{
+	"folders": [
+		{
+			"name": "deployment_tools",
+			"path": "../../../../deployment_tools"
+		},
+		{
+			"name": "opentelemetry-collector",
+			"path": "../../../../../open-telemetry/opentelemetry-collector"
+		},
+		{
+			"name": "opentelemetry-collector-contrib",
+			"path": "../../../../../open-telemetry/opentelemetry-collector-contrib"
+		},
+		{
+			"name": "opentelemetry-go",
+			"path": "../../../../../open-telemetry/opentelemetry-go"
+		},
+		{
+			"name": "otel-memchached-exporter-example",
+			"path": "../../../../../gouthamve/otel-memchached-exporter-example"
+		},
+		{
+			"name": "prometheus",
+			"path": "../../../../../prometheus/prometheus"
+		},
+		{
+			"name": "mimir",
+			"path": "../../.."
+		},
+		{
+			"name": "testingshit",
+			"path": "../../../../../gouthamve/testingshit"
+		},
+		{
+			"path": "../../../../../prometheus/compliance"
+		},
+		{
+			"path": "../../../../../deliveryhero/cortex-gateway"
+		},
+		{
+			"path": "../../../../../open-telemetry/opentelemetry-specification"
+		},
+		{
+			"path": "../../../../../cortexproject/cortex"
+		},
+		{
+			"path": "../../../../../../../../stash/leaky-gamez"
+		}
+	],
+	"settings": {
+		"makefile.extensionOutputFolder": "./.vscode"
+	}
+}
