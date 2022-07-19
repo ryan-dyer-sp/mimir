@@ -6,7 +6,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ include "mimir.zonedResourceName" $args }}
+  name: {{ include "mimir.resourceName" $args }}
   labels:
     {{- include "mimir.zonedLabels" $args | nindent 4 }}
   annotations:

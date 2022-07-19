@@ -169,19 +169,16 @@ Memberlist bind port
 Resource name template
 */}}
 {{- define "mimir.resourceName" -}}
-{{ include "mimir.fullname" .ctx }}{{- if .component -}}-{{ .component }}{{- end -}}
-{{- end -}}
-
-{{- define "mimir.zonedResourceName" -}}
-{{- $component_values := index .ctx.Values (default .component .component_config) -}}
-{{- if $component_values.zone_aware_replication.enabled -}}
+{{- $component_values := default dict (index .ctx.Values (default (default "" .component) .component_config)) -}}
+{{- if (dig "zone_aware_replication" "enabled" false $component_values) -}}
 {{- $zoneNameCharLimit := sub 64 (len (printf "%s-" .component)) -}}
-{{- if gt (len .rolloutZoneName) $zoneNameCharLimit -}}
+{{- if gt (len (default "" .rolloutZoneName)) $zoneNameCharLimit -}}
 {{- fail (printf "Zone Name (%s) exceeds character limit (%d)" .rolloutZoneName $zoneNameCharLimit ) -}}
 {{- end -}}
 {{- end -}}
-{{ include "mimir.resourceName" . }}{{- if  $component_values.zone_aware_replication.enabled -}}-{{ .rolloutZoneName }}{{- end -}}
+{{ include "mimir.fullname" .ctx }}{{- if .component -}}-{{ .component }}{{- if (dig "zone_aware_replication" "enabled" false $component_values) -}}-{{ .rolloutZoneName }}{{- end -}}{{- end -}}
 {{- end -}}
+
 
 {{/*
 Simple resource labels
